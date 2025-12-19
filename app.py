@@ -3,7 +3,7 @@ import numpy as np
 import pickle
 
 # Load trained model
-with open("model/crop_model.pkl", "rb") as file:
+with open("crop_model.pkl", "rb") as file:
     model = pickle.load(file)
 
 st.set_page_config(page_title="Crop Recommendation System", page_icon="🌾")
@@ -25,3 +25,4 @@ if st.button("Recommend Crop"):
     input_data = np.array([[N, P, K, temperature, humidity, ph, rainfall]])
     prediction = model.predict(input_data)
     st.success(f"🌱 Recommended Crop: **{prediction[0]}**")
+
